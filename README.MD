@@ -15,6 +15,8 @@ e.g. A small web page loads and displays a few buttons to press:
 - A button that calls and displays results of the TasksController endpoint
 - A button that calls and displays results of Report 1
 - A button that calls and displays results of Report 2
+
+If you have some HTML/CSS experience you'd like to demonstrate please feel free to show a little example by styling the basic web front end created above.
 <br/><br/>
 
 # IOC Exercise
