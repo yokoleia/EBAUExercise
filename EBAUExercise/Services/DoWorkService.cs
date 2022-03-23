@@ -4,15 +4,23 @@ namespace EBAUExercise.Services
 {
     public class DoWorkService
     {
-        private readonly MockDataRepository _mockDataRepository;
+        
+        private CountingService _CountingService;
+        private MockDataRepository _mockDataRepository;
 
-        public DoWorkService(MockDataRepository mockDataRepository)
+
+
+
+        public DoWorkService(MockDataRepository mockDataRepository, CountingService CountingService)
         {
             _mockDataRepository = mockDataRepository;
+            _CountingService = CountingService;
+
         }
 
-        private bool DoWork()
+        public bool DoWork()
         {
+            _CountingService.Increment();
             return _mockDataRepository.Save();
         }
     }

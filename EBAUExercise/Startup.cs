@@ -34,6 +34,7 @@ namespace EBAUExercise
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterType<DoWorkService>().AsSelf();
+            builder.RegisterType<CountingService>().AsSelf();
             builder.RegisterType<MockDataRepository>().AsSelf();
         }
 

@@ -7,22 +7,35 @@ namespace EBAUExercise.Controllers
     [Route("[controller]")]
     public class TasksController : ControllerBase
     {
-        private readonly DoWorkService _doWorkService;
+        
+        private DoWorkService _doWorkService;
+        private CountingService _CountingService;
 
-        public TasksController(DoWorkService doWorkService)
+
+        public TasksController(DoWorkService doWorkService, CountingService CountingService)
         {
             _doWorkService = doWorkService;
+            _CountingService = CountingService;
         }
+
+        
 
         [HttpGet]
         public IActionResult Get()
         {
+
             // eg. CountingService.Increment()
+
+            _CountingService.Increment();
+
+
+
 
             return Ok(new
             {
                 IsDataSaved = _doWorkService.DoWork(),
-                Count = 1 // return the current value of the counter here.
+                Count = _CountingService.Count,
+                // return the current value of the counter here.
             });
         }
     }
