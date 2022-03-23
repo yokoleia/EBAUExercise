@@ -36,6 +36,9 @@ namespace EBAUExercise
             builder.RegisterType<DoWorkService>().AsSelf();
             builder.RegisterType<CountingService>().AsSelf();
             builder.RegisterType<MockDataRepository>().AsSelf();
+            builder.RegisterType<SampleDataRepository>().AsSelf();
+
+            builder.RegisterType<ReportService>().AsSelf();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

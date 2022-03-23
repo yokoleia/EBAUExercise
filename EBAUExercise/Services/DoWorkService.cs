@@ -10,7 +10,6 @@ namespace EBAUExercise.Services
 
 
 
-
         public DoWorkService(MockDataRepository mockDataRepository, CountingService CountingService)
         {
             _mockDataRepository = mockDataRepository;
@@ -21,7 +20,10 @@ namespace EBAUExercise.Services
         public bool DoWork()
         {
             _CountingService.Increment();
+
             return _mockDataRepository.Save();
+
+
         }
     }
 }
