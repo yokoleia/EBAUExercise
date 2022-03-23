@@ -20,15 +20,14 @@ namespace EBAUExercise.Controllers
             _ReportService = reportService;
         }
 
-        
-
         [HttpGet]
         public IActionResult Get()
         {
 
-            // eg. CountingService.Increment()
-
+            // counter increment
             _CountingService.Increment();
+
+            // report services update
             _ReportService.update();
 
 
@@ -37,10 +36,12 @@ namespace EBAUExercise.Controllers
             {
                 IsDataSaved = _doWorkService.DoWork(),
                 Count = _CountingService.Count,
+
+
+                // report services update
                 CustomerReport = Services.ReportService._CustomerReportList,
                 StoresReport = Services.ReportService._StoreDailyReportList,
-                //StoreReport = _ReportService.StoreDailyReport().Count,
-                // return the current value of the counter here.
+                
             });
         }
     }

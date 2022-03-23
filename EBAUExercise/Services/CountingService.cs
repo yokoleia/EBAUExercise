@@ -15,12 +15,12 @@ namespace EBAUExercise.Services
         }
 
 
-
         public int Increment()
         {
            return _Count++;
         }
 
+        
         public static int Reset()
         {
            return _Count = 0;

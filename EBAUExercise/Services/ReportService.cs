@@ -71,12 +71,8 @@ namespace EBAUExercise.Services
                     }
 
                 }
-            
-
             }
             _CustomerReportList = CustomerReportList;
-
-
         }
 
         /// <summary>
@@ -124,6 +120,9 @@ namespace EBAUExercise.Services
 
         }
 
+        /// <summary>
+        /// Needs to be called to calculate and finalise the reports. 
+        /// </summary>
         public void update()
         {
             CustomerReport();
