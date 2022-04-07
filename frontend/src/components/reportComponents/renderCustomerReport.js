@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 const API = "https://localhost:5001/";
 
 export default class renderCustomerReport extends Component {
