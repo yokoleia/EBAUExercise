@@ -1,34 +1,18 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React,{ Component} from 'react';
-import NavBar from "./components/navbar.js";
-import Reports from "./components/reports"
+import * as React from "react";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import RenderCustomerReport from "./components/reportComponents/renderCustomerReport";
+import RenderHome from "./components/reportComponents/renderHome";
+import RenderStoresReport from "./components/reportComponents/renderStoresReport";
 
-
-
-export default class App extends Component {
-  static displayName = App.name;
-  constructor(props) {
-    super(props);
-    this.state = { view: "home" };
-    this.updateView = this.updateView.bind(this);
-
-
-  }
-
-  updateView(currView) {
-    this.setState({ view: currView });
-  }
-
-
-  render()
-  {
-    
-    return(
-    <>
-        <NavBar updateView={this.updateView}/>
-        <Reports updateView={this.updateView} view={this.state.view}/>
-    </>
-  )
-    }
+export default function App() {
+  return (
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<RenderHome />} />
+        <Route path="/customerReports" element={<RenderCustomerReport />} />
+        <Route path="/storesReports" element={<RenderStoresReport />} />
+      </Routes>
+    </div>
+  );
 }

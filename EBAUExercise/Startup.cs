@@ -29,6 +29,11 @@ namespace EBAUExercise
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EBAUExercise", Version = "v1" });
             });
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
+            
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -37,8 +42,9 @@ namespace EBAUExercise
             builder.RegisterType<CountingService>().AsSelf();
             builder.RegisterType<MockDataRepository>().AsSelf();
             builder.RegisterType<SampleDataRepository>().AsSelf();
+            builder.RegisterType<CustomerReportService>().AsSelf();
 
-            builder.RegisterType<ReportService>().AsSelf();
+            builder.RegisterType<StoresReportService>().AsSelf();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,8 +58,8 @@ namespace EBAUExercise
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
+            app.UseCors(options => options.WithOrigins("https://localhost"));
 
             app.UseAuthorization();
 
