@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { useState } from "react";
 import {
         Collapse,
         Navbar,
@@ -13,50 +13,46 @@ import {
         DropdownItem,
 
 } from "reactstrap";
+// sample with useState
+const NavigationBar = (props) => {
+        
+        const [isOpen, setIsOpen] = useState(false);
 
+        const toggle = () => setIsOpen(!isOpen);
 
-
-
-export default class NavigationBar extends Component {
-
-
-       
-        render() {
-                return (
+        
+        
+        return (
                 <div>
                         <Navbar color="dark" dark expand="md">
                                 <NavbarBrand style={{ color: "#ffa499" }} href="/">
                                         EBAUExercise V1
                                 </NavbarBrand>
-                                <NavbarToggler />
-                                <Collapse isOpen={this.isOpen} navbar>
+                                <NavbarToggler onClick={toggle} />
+                                <Collapse isOpen={isOpen} navbar>
                                         <Nav className="mr-auto" navbar>
                                                 <NavItem>
-                                                        <NavLink onClick={() => this.props.updateView("home")
-                                                        }>Home</NavLink>
+                                                        <NavLink href="/">Home</NavLink>
                                                 </NavItem>
                                                 <UncontrolledDropdown nav inNavbar>
                                                         <DropdownToggle nav caret>
                                                                 Reports
                                                         </DropdownToggle>
                                                         <DropdownMenu>
-                                                                <DropdownItem onClick={() => this.props.updateView("customerReport")
-                                                                }>
+                                                                <DropdownItem onClick={() => this.setState({ count: this.state.count + 1 })}>
                                                                         Customer Report
                                                                 </DropdownItem>
-                                                                <DropdownItem onClick={() => this.props.updateView("storesReport")
-                                                                        }>
+                                                                <DropdownItem>
                                                                         Store Report
                                                                 </DropdownItem>
-
+                                                                
                                                         </DropdownMenu>
                                                 </UncontrolledDropdown>
                                         </Nav>
-
+                                        
                                 </Collapse>
                         </Navbar>
-                </div >
-                )
-        }             
-        
+                </div>
+        );
 };
+export default NavigationBar;

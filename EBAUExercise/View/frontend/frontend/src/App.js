@@ -10,21 +10,26 @@ export default class App extends Component {
   static displayName = App.name;
   constructor(props) {
     super(props);
-    this.state = { view: "" };
+    this.state = { view: "home" };
+    this.updateView = this.updateView.bind(this);
 
 
   }
 
-  
-  
+  updateView(currView) {
+    console.log("updating navbar to "+currView);
+    this.setState({ view: currView });
+  }
+
+
   render()
   {
+    
     return(
     <>
-      <NavBar view={this.state.view}/>
-        <Reports view={this.state.view}/>
+        <NavBar updateView={this.updateView}/>
+        <Reports updateView={this.updateView} view={this.state.view}/>
     </>
   )
     }
-
 }

@@ -1,32 +1,31 @@
 import renderCustomerReport from './reportComponents/renderCustomerReport'
-import renderStoresReport from './reportComponents/renderCustomerReport'
+import renderStoresReport from './reportComponents/renderStoresReport'
 import renderHome from './reportComponents/renderHome'
 
 import React, { Component } from 'react';
 
-const url = 'https://localhost:5001/Tasks';
+const apiurl = 'https://localhost:5001/Tasks';
 
 export default class Reports extends Component {
     static displayName = Reports.name;
 
     constructor(props) {
         super(props);
-        this.state = { ApiData: [], loading: true, view: "Home"};
+        this.state = { ApiData: [], loading: true};
 
         
     }
 
     componentDidMount() {
-        console.log(this.state.view)
+        console.log(this.props.view)
         this.fetchApiData();
     }
 
     render() {
         if (!this.state.loading) {
-            if (this.props.tab === "customerReport") {
+            if (this.props.view === "customerReport") {
                 
                 return (
-
                     <div>
                         <h1 id="tableLabel" >Customer Report</h1>
                         {renderCustomerReport(this.state.ApiData)}
@@ -34,8 +33,8 @@ export default class Reports extends Component {
                 );
             }
 
-            else if (this.props.tab === "storesReport") {
-                console.log(this.App.tab)
+            else if (this.props.view === "storesReport") {
+                
                 return (
                     <div>
                         <h1 id="tableLabel" >Store Report</h1>
@@ -43,7 +42,7 @@ export default class Reports extends Component {
                     </div>
                 );
             }
-            else {
+            else if (this.props.view === "home") {
                 console.log("super.props " + super.props)
                 return (
                     
@@ -58,7 +57,7 @@ export default class Reports extends Component {
     }
 
     async fetchApiData() {
-        let response = await fetch(url);
+        let response = await fetch(apiurl);
         let data = await response.json();
         //data = JSON.parse(data);
         console.log(data);

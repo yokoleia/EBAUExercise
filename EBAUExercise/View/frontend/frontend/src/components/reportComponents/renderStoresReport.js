@@ -1,4 +1,5 @@
 export default function renderStoresReport(ApiData) {
+        console.log("storesreport function call")
         return (
                 <table className='table table-striped' aria-labelledby="tabelLabel">
                         <thead>
