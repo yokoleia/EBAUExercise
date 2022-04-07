@@ -17,7 +17,6 @@ export default class App extends Component {
   }
 
   updateView(currView) {
-    console.log("updating navbar to "+currView);
     this.setState({ view: currView });
   }
 

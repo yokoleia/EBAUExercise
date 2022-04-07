@@ -17,7 +17,6 @@ export default class Reports extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.view)
         this.fetchApiData();
     }
 
@@ -43,7 +42,6 @@ export default class Reports extends Component {
                 );
             }
             else if (this.props.view === "home") {
-                console.log("super.props " + super.props)
                 return (
                     
                     <div>
@@ -60,8 +58,6 @@ export default class Reports extends Component {
         let response = await fetch(apiurl);
         let data = await response.json();
         //data = JSON.parse(data);
-        console.log(data);
-        console.log(this.loading);
         this.setState({ ApiData: data, loading: false });
     }
 

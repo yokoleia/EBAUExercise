@@ -102,8 +102,11 @@ namespace EBAUExercise.Services
                     // checking to see if its the same customer's orders and summing totals for count and cost. 
                     // if customer in list == last customer in report. 
                     int currIndex = StoreReportList.Count() - 1;
-                    if (SortedList[i].OrderDate == StoreReportList[currIndex].OrderDate)
+                    TimeSpan ts = SortedList[i].OrderDate - StoreReportList[currIndex].OrderDate;
+                    if (ts.TotalDays < 1)
                     {
+
+                       
                         StoreReportList[currIndex].OrderCount++;
                         StoreReportList[currIndex].OrderTotal += SortedList[i].OrderTotal;
                     }

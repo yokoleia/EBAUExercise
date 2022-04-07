@@ -1,5 +1,5 @@
+
 export default function renderStoresReport(ApiData) {
-        console.log("storesreport function call")
         return (
                 <table className='table table-striped' aria-labelledby="tabelLabel">
                         <thead>
@@ -12,9 +12,11 @@ export default function renderStoresReport(ApiData) {
                         <tbody>
                                 {ApiData.storesReport.map(storesReport =>
                                         <tr key={storesReport.orderDate}>
-                                                <td>{storesReport.orderDate}</td>
+                                                <td>{storesReport.orderDate.split("T")[0]}</td>
                                                 <td>{storesReport.orderCount}</td>
-                                                <td>${storesReport.orderTotal}</td>
+                                                <td>${
+                                               Number(storesReport.orderTotal).toFixed(2)
+                                                }</td>
                                         </tr>
                                 )}
                         </tbody>

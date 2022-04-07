@@ -18,9 +18,7 @@ import {
 
 
 export default class NavigationBar extends Component {
-
-
-       
+               
         render() {
                 return (
                 <div>
@@ -29,7 +27,7 @@ export default class NavigationBar extends Component {
                                         EBAUExercise V1
                                 </NavbarBrand>
                                 <NavbarToggler />
-                                <Collapse isOpen={this.isOpen} navbar>
+                                <Collapse navbar>
                                         <Nav className="mr-auto" navbar>
                                                 <NavItem>
                                                         <NavLink onClick={() => this.props.updateView("home")

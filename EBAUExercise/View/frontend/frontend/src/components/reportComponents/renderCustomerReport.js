@@ -13,7 +13,9 @@ export default function renderCustomerReport(ApiData) {
                                         <tr key={customerReport.customerId}>
                                                 <td>{customerReport.customerId}</td>
                                                 <td>{customerReport.orderCount}</td>
-                                                <td>${customerReport.orderTotal}</td>
+                                                <td>${
+                                                        Number(customerReport.orderTotal).toFixed(2)
+                                                }</td>
                                         </tr>
                                 )}
                         </tbody>
