@@ -23,8 +23,8 @@ export default class renderHome extends Component {
     return (
       <div>
         <h1 id="tableLabel">IOC Exercise Report</h1>
-
-        <p>Hello. The current count is {this.state.ApiData.count}.</p>
+        <p>The current count is {this.state.ApiData.count}.  </p>
+        
       </div>
     );
   }

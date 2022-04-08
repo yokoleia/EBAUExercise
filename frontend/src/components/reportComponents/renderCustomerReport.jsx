@@ -10,7 +10,6 @@ export default class renderCustomerReport extends Component {
   async fetchApiData() {
     let response = await fetch(API + "customerReport");
     let data = await response.json();
-    console.log("fetch result: " + data);
     //data = JSON.parse(data);
     this.setState({ ApiData: data, loading: false });
   }
@@ -24,8 +23,8 @@ export default class renderCustomerReport extends Component {
       return (
         <div>
           <h1 id="tableLabel">Customer Report</h1>
-
-          <table className="table table-striped" aria-labelledby="tabelLabel">
+          <script src="sortTable.js"></script>
+          <table className="table table-striped bordered hover>" aria-labelledby="tabelLabel">
             <thead>
               <tr>
                 <th>Customer ID</th>
@@ -34,7 +33,7 @@ export default class renderCustomerReport extends Component {
               </tr>
             </thead>
             <tbody>
-              {console.log(this.state.ApiData.customerReport)}
+              
               {this.state.ApiData.customerReport.map((customerReport) => (
                 <tr key={customerReport.customerId}>
                   <td>{customerReport.customerId}</td>

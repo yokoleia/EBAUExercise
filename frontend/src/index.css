@@ -1,6 +1,22 @@
 
-root {
+.root {
     font-family: lato;
     height: 100%;
     background-color: #333;
+}
+
+.App {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  min-width: 60%; 
+  max-width: fit-content;
+  align-items: left;
+}
+
+.tabelLabel {
+  width: 60%;
 }
